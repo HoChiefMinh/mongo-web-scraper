@@ -23,7 +23,6 @@ cheerio
 express
 express-handlebars
 mogoose
-
 ```
 
 ## Author
