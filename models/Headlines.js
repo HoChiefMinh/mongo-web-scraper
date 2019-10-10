@@ -2,15 +2,23 @@ let mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
-let noteSchema = new Schema({
-    __headlineId:{
-        type: Schema.Types.ObjectId,
-        ref:'Headline'
+let headlineSchema = new Schema({
+    headlineId:{
+        type: String,
+        required: true,
+        unique: true
+    },
+    summary: {
+        type: String,
+        required: true
     },
     date: String,
-    noteText: String
+    saved: {
+        type: Boolean,
+        default: false
+    }
 });
 
-let Note = mongoose.model('Note', noteSchema);
+let Headline = mongoose.model('Headline', headlineSchema);
 
-module.exports = Note;
+module.exports = Headline;
