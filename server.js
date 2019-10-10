@@ -13,6 +13,9 @@ let app = express();
 // Set up an Express Router
 let router = express.Router();
 
+// Require out toutes file to pass out touter object
+require('./config/routes')(router);
+
 // Designates our public folder as a static directory
 app.use(express.static(__dirname + '/public'));
 
@@ -26,7 +29,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// Have every request fo through out router middleware
+// Have every request go through our router middleware
 app.use(router);
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
