@@ -1,6 +1,7 @@
 let mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
+ 
 
 let headlineSchema = new Schema({
     headlineId:{
