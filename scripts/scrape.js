@@ -4,14 +4,15 @@ let cheerio = require('cheerio');
 let axios = require('axios');
 
 // First, tell the console what server.js is doing
-console.log("\n***********************************\n" +
-            "Grabbing every thread name and link\n" +
-            "from reddit's webdev board:" +
-            "\n***********************************\n");
+console.log(
+  '\n***********************************\n' +
+    'Grabbing every headline, summary, and link\n' +
+    'from The Wall Street Journal webdev board:' +
+    '\n***********************************\n'
+);
 
 // Making a request via axios for reddit's "webdev" board. The page's HTML is passed as the callback's third argument
-axios.get("https://old.reddit.com/r/webdev/").then(function(response) {
-
+axios.get('https://www.wsj.com/news/technology').then(function(response) {
   // Load the HTML into cheerio and save it to a variable
   // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
   var $ = cheerio.load(response.data);
@@ -19,24 +20,57 @@ axios.get("https://old.reddit.com/r/webdev/").then(function(response) {
   // An empty array to save the data that we'll scrape
   var results = [];
 
-  // With cheerio, find each p-tag with the "title" class
+  // With cheerio, find each h3-tag
   // (i: iterator. element: the current element)
-  $("p.title").each(function(i, element) {
-
+  $('h3').each(function(i, element) {
     // Save the text of the element in a "title" variable
-    var title = $(element).text();
+    var title = $(this)
+      .children()
+      .text();
+
+    // Save the text of the element in a 'summary variable
+    var summary = $(this) // could not get summary to display to page
+      .find('span')
+      .text();
 
     // In the currently selected element, look at its child elements (i.e., its a-tags),
     // then save the values for any "href" attributes that the child elements may have
-    var link = $(element).children().attr("href");
+    var link = $(this)
+      .children('a')
+      .attr('href');
 
     // Save these results in an object that we'll push into the results array we defined earlier
     results.push({
       title: title,
+      summary: summary,
       link: link
     });
+
+    // With cheerio, find each p-tag
+    // (i: iterator. element: the current element)
+    // $('p').each(function(i, element){
+
+    //   // Save the text of the element in a "summary" variable
+    //   let summary  = $(element).find('span').text();
+
+    //  // Save these results in an object that we'll push into the results array we defined earlier
+    //   results.push({
+    //     summary: summary,
+    //   });
+    // });
+
+    // $('a.wjs-image-link').each(function(i, element){
+
+    //   let imgLink  = $(element).find("img").attr("src");
+
+    //   results.push({
+    //     image: imgLink
+    //   });
+    // });
   });
 
   // Log the results once you've looped through each of the elements found with cheerio
   console.log(results);
 });
+
+// module.exports = scrape;
