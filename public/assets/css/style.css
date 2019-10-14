@@ -1,74 +1,91 @@
-html{
-    position: relative;
-    min-height: 100%;
+html {
+	position: relative;
+	min-height: 100%;
 }
 
-body{
-    margin-bottom: 80px;
-    background-image: url('../images/texture.jpg');
+body {
+	margin-bottom: 80px;
+	background-image: url('../images/texture.jpg');
+	background-repeat: no-repeat;
+	height: 500px;
+	background-position: center; 
+	 background-size: cover;
 }
 
 li {
-    padding: 10px;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-weight: 800;
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: 800;
 }
 
-.jumbotron{
-    position: relative;
-    width: 100%;
-    height:500px;
-    font-family: 'Frank Ruhl Libre', serif;
-    padding: 0;
-    box-shadow: 10px 5px 20px 2px lightslategray;
+a.btn.scrape-new,
+a.btn.clear {
+	color: white;
 }
 
-.jumbotron .overlay{
-    background: linear-gradient(#333, black);
-    position: absolute;
-    opacity: 0.7;
-    z-index: auto;
-    top: 0 0 0 0;
+.jumbotron {
+	position: relative;
+	width: 100%;
+	height: 500px;
+	font-family: 'Frank Ruhl Libre', serif;
+	padding: 0;
+	box-shadow: 10px 5px 20px 2px lightslategray;
 }
 
-.jumbotron .background-image{
-    height: 100%;
-    background-image: url('../images/jumbotron.jpg');
-    background-size: cover;
+.jumbotron .overlay {
+	background: linear-gradient(#333, black);
+	position: absolute;
+	opacity: 0.7;
+	z-index: auto;
+	top: 0 0 0 0;
+}
+
+.background-image {
+	height: 100%;
+	background-image: url('../images/jumbotron.jpg');
+	background-size: cover;
 }
 
 .jumbotron .caption {
-    position: absolute;
-    top: 30%;
-    width: 100%;
-    text-align: center;
+	position: absolute;
+	top: 30%;
+	width: 100%;
+	text-align: center;
 }
 
 .jumbotron .caption h1,
-.jumbotron .caption p{
-    color: white;
+.jumbotron .caption p {
+	color: #dc3545;
 }
 
-.jumbotron h1{
-    font-weight: 800;
-    font-size: 80px;
+.jumbotron h1 {
+	font-family: 'Frank Ruhl Libre', serif;
+	font-weight: 800;
+	font-size: 80px;
 }
 
-.jumbotron p{
-    font-size: 30px;
+.jumbotron p {
+	font-size: 30px;
 }
 
 .panel {
-    border-radius: 0;
-    box-shadow: 3px 3px 20px lightslategray;
-}
-
-.panel .panel-default .panel-heading{
-    background-color: #2196f3;
+	border-radius: 0;
+	box-shadow: 3px 3px 20px lightslategray;
 }
 
 .panel.panel-default .panel-heading h3 {
-    color: white;
+	color: white;
 }
 
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+p.copyright {
+	margin: 10px;
+	color: white;
+	font-size: 15px;
+}
