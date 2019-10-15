@@ -1,6 +1,6 @@
 # mongo-web-scraper
 
-Mongo Web Scraper is a application that does exactly as it's name states, lets take a deeper look! It allows users to scrape news articles directly from one of the most highly rated news sources, "The Wall Street Journal". Once the newly scraped articles are rendered to the screen the user has the option to select and save articles of their choosin, and if they want they can add a comment as well. Once they're satisfied and finished reading their article they also have the option to delete the saved article.
+Mongo Web Scraper is a application that allows users to scrape news articles directly from one of the most highly rated news sources, "The Wall Street Journal". Once the newly scraped articles are rendered to the screen the user has the option to select and save articles of their choosin, and if they want they can add a comment as well. Once they're satisfied and finished reading their article they also have the option to delete the saved article.
 
 ## How Does it Work?
 
